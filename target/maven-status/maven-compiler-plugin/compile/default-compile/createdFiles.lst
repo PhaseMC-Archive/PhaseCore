@@ -1,0 +1,4 @@
+net/phasemc/core/db/Database.class
+net/phasemc/core/commands/script.class
+net/phasemc/core/scripts/test.class
+net/phasemc/core/Main.class

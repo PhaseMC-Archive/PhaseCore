@@ -1,0 +1,11 @@
+main: net.phasemc.core.Main
+name: THE-CORE
+version: 0.0.1
+description: The main core for the phase-mc server.
+authors: [shmezi, Jordan, OtherStaff]
+website: phasemc.net
+prefix: CORE
+commands:
+  script:
+    description: Test
+    aliases: trigger
