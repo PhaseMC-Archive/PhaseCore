@@ -1,14 +1,13 @@
 package net.phasemc.core.commands;
 
-import net.phasemc.core.scripts.test;
+import net.phasemc.core.scripts.Test;
 import org.bukkit.ChatColor;
-import org.bukkit.Color;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.Color;
-public class script implements CommandExecutor {
+
+public class Script implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender instanceof Player) {
@@ -18,7 +17,7 @@ public class script implements CommandExecutor {
                     String arg = args[0];
                     switch (arg) {
                         case "test":
-                            new test(player, cmd, label, args, arg);
+                            new Test(player, cmd, label, args, arg);
                             break;
                         case "fuck":
                             player.sendMessage(ChatColor.AQUA + "haha lol u succ");
