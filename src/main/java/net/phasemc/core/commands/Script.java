@@ -10,9 +10,13 @@ import org.bukkit.entity.Player;
 public class Script implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        // Checks if the sender is a player.
         if (sender instanceof Player) {
             Player player = (Player) sender;
+
+            // Checks if the player has the proper permissions to execute the command
             if (player.hasPermission("core.script")) {
+                // Checks if the player specified any arguments (prevents IndexOutOfBounds exception)
                 if (args.length != 0) {
                     String arg = args[0];
                     switch (arg) {
@@ -21,9 +25,10 @@ public class Script implements CommandExecutor {
                             break;
                         case "fuck":
                             player.sendMessage(ChatColor.AQUA + "haha lol u succ");
+                            break;
                         default:
                             player.sendMessage(ChatColor.RED + "Uknown Script!");
-                    } //Switch
+                    }
                 } else {
                     player.sendMessage(ChatColor.RED + "No argument provided!");
                 }
