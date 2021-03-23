@@ -1,6 +1,8 @@
 package net.phasemc.core.db;
 
-public class SQL {
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class SQL extends JavaPlugin {
 
 
 
