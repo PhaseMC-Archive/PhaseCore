@@ -9,3 +9,7 @@ commands:
   script:
     description: Test
     aliases: trigger
+  gma:
+  gmc:
+  gms:
+  gmsp:
