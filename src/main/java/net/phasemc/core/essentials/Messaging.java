@@ -1,4 +1,4 @@
 package net.phasemc.core.essentials;
 
-public class msg {
+public class Messaging {
 }
