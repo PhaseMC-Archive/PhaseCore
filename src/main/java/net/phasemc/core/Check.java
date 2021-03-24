@@ -5,10 +5,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 
-public class PermissionOnlyPlayer {
+public class Check {
 
 
-    public static boolean PermissionOnlyPlayer(CommandSender sender, String permission) {
+    public static boolean IsPlayer(CommandSender sender, String permission) {
         if (sender instanceof Player){
             Player player = (Player) sender;
 
@@ -26,7 +26,6 @@ public class PermissionOnlyPlayer {
         }
         return false;
     }
-
 
 
 }

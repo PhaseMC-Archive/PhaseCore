@@ -1,6 +1,6 @@
 package net.phasemc.core.essentials;
 
-import net.phasemc.core.PermissionOnlyPlayer;
+import net.phasemc.core.Check;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
@@ -12,7 +12,7 @@ public class Gamemodes implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (PermissionOnlyPlayer.PermissionOnlyPlayer(sender, "gamemodes")) {
+        if (Check.IsPlayer(sender, "gamemodes")) {
             Player player = (Player) sender;
             switch (cmd.getName()) {
                 case "gmc":

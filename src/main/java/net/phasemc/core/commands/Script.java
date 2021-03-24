@@ -23,9 +23,6 @@ public class Script implements CommandExecutor {
                         case "test":
                             new Test(player, cmd, label, args, arg);
                             break;
-                        case "fuck":
-                            player.sendMessage(ChatColor.AQUA + "haha lol u succ");
-                            break;
                         default:
                             player.sendMessage(ChatColor.RED + "Uknown Script!");
                     }
