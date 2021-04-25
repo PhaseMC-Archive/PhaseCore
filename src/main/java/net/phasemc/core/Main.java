@@ -4,13 +4,34 @@ import net.phasemc.core.commands.CoreCommand;
 import net.phasemc.core.essentials.Gamemodes;
 import org.bukkit.plugin.java.JavaPlugin;
 import net.phasemc.core.commands.Script;
+import org.bukkit.plugin.java.annotation.command.Command;
+import org.bukkit.plugin.java.annotation.plugin.Description;
+import org.bukkit.plugin.java.annotation.plugin.LogPrefix;
+import org.bukkit.plugin.java.annotation.plugin.Plugin;
+import org.bukkit.plugin.java.annotation.plugin.Website;
+import org.bukkit.plugin.java.annotation.plugin.author.Author;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+
+//Main plugin declaration
+@Plugin(name = "THE-CORE", version = "1.0")
+@Description(desc = "The main core for the phase-mc server.")
+@Author(name = "shmezi")
+@Author(name = "Jordan")
+@Author(name = "Other staff")
+@LogPrefix(prefix = "CORE")
+@Website(url = "http://phasemc.net")
+//Commands start here
+@Command(name = "gmsp")
+@Command(name = "gms")
+@Command(name = "gmc")
+@Command(name = "gma")
 public class Main extends JavaPlugin {
+
     private static Main main;
     private List<CoreCommand> commands;
 
