@@ -1,5 +1,7 @@
 package net.phasemc.core.commands;
 
+import net.phasemc.core.MessageManager;
+import net.phasemc.core.MessageType;
 import net.phasemc.core.scripts.Test;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -18,13 +20,12 @@ public class Script implements CommandExecutor {
             if (player.hasPermission("core.script")) {
                 // Checks if the player specified any arguments (prevents IndexOutOfBounds exception)
                 if (args.length != 0) {
-                    String arg = args[0];
-                    switch (arg) {
-                        case "test":
-                            new Test(player, cmd, label, args, arg);
-                            break;
-                        default:
-                            player.sendMessage(ChatColor.RED + "Uknown Script!");
+                    String arg = args[0].toLowerCase();
+                    try{ Class.forName("net.phasemc.core.scripts." + arg).newInstance();
+
+                    } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+                        MessageManager.message(MessageType.SCRIPT_UNKNOWN, player);
+
                     }
                 } else {
                     player.sendMessage(ChatColor.RED + "No argument provided!");

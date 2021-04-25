@@ -1,10 +1,9 @@
 package net.phasemc.core.essentials;
 
-import net.phasemc.core.ArgCheck;
+import net.phasemc.core.Check;
 import net.phasemc.core.Main;
 import net.phasemc.core.MessageManager;
 import net.phasemc.core.MessageType;
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,16 +13,18 @@ public class Flight implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player;
-        if((player = Main.playerCheck(sender)) != null) {
-            if (ArgCheck.check(args, player)) {
+        if((player = Check.player(sender)) != null) {
+            if (Check.player(args, player)) {
                 flight(player);
             } else {
                 if (sender.hasPermission("core.flyother")) {
-                    flight(Bukkit.getPlayer(args[0]));
+
                 } else {
-                    MessageManager.message(player, MessageType.PERMISSION);
+                    MessageManager.message(MessageType.PERMISSION, player);
                 }
             }
+        }else{
+            MessageManager.message(MessageType.NONPLAYEREXEXECUTABLE);
         }
         return false;
     }

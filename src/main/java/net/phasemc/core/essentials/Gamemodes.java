@@ -1,5 +1,6 @@
 package net.phasemc.core.essentials;
 
+import net.phasemc.core.Check;
 import net.phasemc.core.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -14,7 +15,7 @@ public class Gamemodes implements CommandExecutor {
         final String gamemode = ChatColor.BLUE + "" + ChatColor.BOLD + "Your gamemode has been set to ";
 
         Player player;
-        if((player = Main.playerCheck(sender)) != null) {
+        if((player = Check.player(sender)) != null) {
             switch (label.substring(2)) {
                 // Sets GameMode to Creative
                 case "c":
