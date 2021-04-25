@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import java.util.Arrays;
 
 public class Gamemodes extends CorePlayerCommand {
+
     public Gamemodes() {
         super("gm",
                 Arrays.asList("gmc", "gma", "gmsp", "gms"),
