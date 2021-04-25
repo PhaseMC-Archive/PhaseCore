@@ -1,23 +1,31 @@
 package net.phasemc.core.essentials;
 
-import com.sun.org.apache.xpath.internal.Arg;
 import net.phasemc.core.ArgCheck;
+import net.phasemc.core.Main;
 import net.phasemc.core.MessageManager;
 import net.phasemc.core.MessageType;
-import net.phasemc.core.commands.CorePlayerCommand;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import net.phasemc.core.MessageManager;
 
-public class Flight extends CorePlayerCommand {
-
-    public Flight() {
-        super("fly",
-                null,
-                "fly"
-        );
+public class Flight implements CommandExecutor {
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        Player player;
+        if((player = Main.playerCheck(sender)) != null) {
+            if (ArgCheck.check(args, player)) {
+                flight(player);
+            } else {
+                if (sender.hasPermission("core.flyother")) {
+                    flight(Bukkit.getPlayer(args[0]));
+                } else {
+                    MessageManager.message(player, MessageType.PERMISSION);
+                }
+            }
+        }
+        return false;
     }
 
     public void flight(Player p){
@@ -32,18 +40,5 @@ public class Flight extends CorePlayerCommand {
                 p.setFlying(true);
             }
         }
-    }
-    @Override
-    public boolean onCommand(Player sender, Command command, String label, String[] args) {
-        if (new ArgCheck().check(args, sender)){
-            flight(sender);
-        }else {
-            if (sender.hasPermission("core.flyother")){
-                flight(Bukkit.getPlayer(args[0]));
-            }else{
-                MessageManager.message(sender, MessageType.PERMISSION);
-            }
-        }
-        return false;
     }
 }
