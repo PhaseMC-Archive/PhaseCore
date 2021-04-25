@@ -49,6 +49,7 @@ public class Main extends JavaPlugin {
         this.getCommand("gms").setExecutor(commandHandler);
         this.getCommand("gmsp").setExecutor(commandHandler);
         this.getCommand("gma").setExecutor(commandHandler);
+        this.getCommand("fly").setExecutor(commandHandler);
 
         System.out.println("THE-CORE HAS BEEN ENABLED!");
     }
