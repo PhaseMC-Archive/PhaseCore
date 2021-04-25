@@ -2,7 +2,6 @@ package net.phasemc.core.commands;
 
 import net.phasemc.core.MessageManager;
 import net.phasemc.core.MessageType;
-import net.phasemc.core.scripts.Test;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
