@@ -1,0 +1,7 @@
+test: "testing"
+
+mongo:
+  server: "127.0.0.1"
+  username: "jordan"
+  password: "test"
+  database: "theCore"
