@@ -1,5 +1,6 @@
 package net.phasemc.core;
 
+import net.phasemc.core.enums.MessageType;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

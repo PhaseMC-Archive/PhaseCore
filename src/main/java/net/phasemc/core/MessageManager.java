@@ -1,5 +1,6 @@
 package net.phasemc.core;
 
+import net.phasemc.core.enums.MessageType;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -38,6 +39,9 @@ public class MessageManager {
             case NONPLAYEREXEXECUTABLE:
                 Bukkit.getLogger().info(ChatColor.RED + "Command only executable by player!");
                 break;
+            case FUCKEDUP:
+                Bukkit.getLogger().info(ChatColor.RED + "You have clearly fucked up big time!");
+
             default:
                 Bukkit.getLogger().info(ChatColor.RED + "Command only executable by player!");
         }

@@ -1,4 +1,4 @@
-package net.phasemc.core;
+package net.phasemc.core.enums;
 
 public enum MessageType {
     PERMISSION,
@@ -8,5 +8,6 @@ public enum MessageType {
     SCRIPT_UNKNOWN,
     NOARGUMENT,
     FLYON,
-    FLYOFF
+    FLYOFF,
+    FUCKEDUP
     }
