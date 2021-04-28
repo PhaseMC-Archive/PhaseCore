@@ -5,7 +5,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class Check {
-    public static boolean player (String[] l, Player p){
+    public static boolean playerarg (String[] l, Player p){
         if (l.length == 0){
             return false;
         }else if (Bukkit.getPlayer(l[0]).isOnline()){

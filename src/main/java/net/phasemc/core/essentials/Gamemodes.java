@@ -2,6 +2,8 @@ package net.phasemc.core.essentials;
 
 import net.phasemc.core.Check;
 import net.phasemc.core.Main;
+import net.phasemc.core.MessageManager;
+import net.phasemc.core.MessageType;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
@@ -42,6 +44,8 @@ public class Gamemodes implements CommandExecutor {
                     System.out.println("SOMETHING IS VERY WRONG WITH YOUR CODE!!!");
                     return false;
             }
+        }else{
+            MessageManager.message(MessageType.NONPLAYEREXEXECUTABLE);
         }
         return true;
     }

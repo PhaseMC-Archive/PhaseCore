@@ -14,13 +14,11 @@ public class Flight implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player;
         if((player = Check.player(sender)) != null) {
-            if (Check.player(args, player)) {
+            if (Check.playerarg(args, player)) {
                 flight(player);
             } else {
-                if (sender.hasPermission("core.flyother")) {
-
-                } else {
-                    MessageManager.message(MessageType.PERMISSION, player);
+                if(Check.permission(player, "core.flyother")){
+                    flight(player);
                 }
             }
         }else{
@@ -32,14 +30,22 @@ public class Flight implements CommandExecutor {
     public void flight(Player p){
         if (p.getAllowFlight()){
             p.setAllowFlight(false);
+            MessageManager.message(MessageType.FLYOFF);
             if (p.isFlying()){
                 p.setFlying(false);
+                MessageManager.message(MessageType.FLYOFF);
             }
         }else{
             p.setAllowFlight(true);
+            MessageManager.message(MessageType.FLYON);
             if (!p.isFlying()){
                 p.setFlying(true);
+                MessageManager.message(MessageType.FLYON);
+
             }
         }
+
+
     }
+
 }

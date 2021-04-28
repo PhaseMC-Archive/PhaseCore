@@ -17,31 +17,27 @@ public class Script implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         // Checks if the sender is a player.
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
+
 
             // Checks if the player has the proper permissions to execute the command
-            if (player.hasPermission("core.script")) {
+            if (sender.hasPermission("core.script")) {
                 // Checks if the player specified any arguments (prevents IndexOutOfBounds exception)
                 if (args.length != 0) {
-                    String arg = args[0].toLowerCase();
+                    String arg = args[0];
                     try {
                         Class<?> classer = Class.forName("net.phasemc.core.scripts." + arg);
                         Constructor<?> constructor = classer.getConstructor(Player.class, Command.class, String.class, String[].class, String.class);
-                        Object instance = constructor.newInstance(player, cmd, label, args, arg);
+                        Object instance = constructor.newInstance(sender, cmd, label, args, arg);
                     } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
-                        MessageManager.message(MessageType.SCRIPT_UNKNOWN, player);
+                        MessageManager.message(MessageType.SCRIPT_UNKNOWN, sender);
                     }
                 }else {
-                    player.sendMessage(ChatColor.RED + "No argument provided!");
+                    MessageManager.message(MessageType.NOARGUMENT, sender);
                 }
             } else {
-                player.sendMessage(ChatColor.RED +"Sorry, you don't have permission to use that command!");
+                MessageManager.message(MessageType.PERMISSION, sender);
             }
-        } else {
-            System.out.println(ChatColor.RED + "Scripts are only executable by player!");
 
-        }
         return false;
     }
 }

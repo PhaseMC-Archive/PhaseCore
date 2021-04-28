@@ -5,6 +5,8 @@ public enum MessageType {
     UKNOWN,
     ONLINE,
     NONPLAYEREXEXECUTABLE,
-    SCRIPT_UNKNOWN
-
+    SCRIPT_UNKNOWN,
+    NOARGUMENT,
+    FLYON,
+    FLYOFF
     }
