@@ -24,7 +24,7 @@ public class Script implements CommandExecutor {
                 try {
 
                     Class<?> classer = Class.forName("net.phasemc.core.scripts." + arg);
-                    Constructor<?> constructor = classer.getConstructor(Player.class, Command.class, String.class, String[].class, String.class);
+                    Constructor<?> constructor = classer.getConstructor(CommandSender.class, Command.class, String.class, String[].class, String.class);
                     Object instance = constructor.newInstance(sender, cmd, label, args, arg);
                 } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
                     MessageManager.message(MessageType.SCRIPT_UNKNOWN, sender);
