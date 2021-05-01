@@ -5,7 +5,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Check {
+
+    public static List<Player> togglePlace = new ArrayList<Player>();
+
     public static boolean playerarg (String[] l, Player p){
         if (l.length == 0){
             return false;
@@ -32,5 +38,10 @@ public class Check {
         } else {
             return null;
         }
+    }
+    public static boolean canPlace(Player p) {
+
+        return !togglePlace.contains(p);
+
     }
 }

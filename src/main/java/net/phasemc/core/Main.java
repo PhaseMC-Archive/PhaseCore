@@ -3,6 +3,7 @@ package net.phasemc.core;
 import net.phasemc.core.commands.Script;
 import net.phasemc.core.essentials.Flight;
 import net.phasemc.core.essentials.Gamemodes;
+import net.phasemc.core.essentials.TogglePlace;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -24,7 +25,15 @@ import org.bukkit.plugin.java.annotation.plugin.author.Authors;
 @LogPrefix(prefix = "CORE")
 @Website(url = "http://phasemc.net")
 //Commands start here
-@Commands({@Command(name = "gmsp"), @Command(name = "gms"), @Command(name = "gmc"), @Command(name = "gma"), @Command(name = "fly"), @Command(name = "script")})
+@Commands({
+        @Command(name = "gmsp"),
+        @Command(name = "gms"),
+        @Command(name = "gmc"),
+        @Command(name = "gma"),
+        @Command(name = "fly"),
+        @Command(name = "script"),
+        @Command(name = "toggleplace", permission = "core.toggleplace", permissionMessage = "You can't use this command!")
+})
 public class Main extends JavaPlugin {
     private static Main main;
 
@@ -38,6 +47,9 @@ public class Main extends JavaPlugin {
         this.getCommand("gmsp").setExecutor(new Gamemodes());
         this.getCommand("gma").setExecutor(new Gamemodes());
         this.getCommand("fly").setExecutor(new Flight());
+        this.getCommand("toggleplace").setExecutor(new TogglePlace());
+
+        this.getServer().getPluginManager().registerEvents(new EventListener(), this);
 
         Bukkit.getLogger().info("THE-CORE HAS BEEN ENABLED!");
     }
