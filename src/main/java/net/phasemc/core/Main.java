@@ -3,8 +3,10 @@ package net.phasemc.core;
 import net.phasemc.core.commands.Script;
 import net.phasemc.core.essentials.Flight;
 import net.phasemc.core.essentials.Gamemodes;
+import net.phasemc.core.essentials.Spawn;
 import net.phasemc.core.essentials.TogglePlace;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -32,7 +34,9 @@ import org.bukkit.plugin.java.annotation.plugin.author.Authors;
         @Command(name = "gma"),
         @Command(name = "fly"),
         @Command(name = "script"),
-        @Command(name = "toggleplace", permission = "core.toggleplace", permissionMessage = "You can't use this command!")
+        @Command(name = "toggleplace", permission = "core.toggleplace", permissionMessage = "§cYou can't use this command!"),
+        @Command(name = "setspawn", permission = "core.setspawn", permissionMessage = "§cYou can't use this command!"),
+        @Command(name = "spawn")
 })
 public class Main extends JavaPlugin {
     private static Main main;
@@ -48,6 +52,8 @@ public class Main extends JavaPlugin {
         this.getCommand("gma").setExecutor(new Gamemodes());
         this.getCommand("fly").setExecutor(new Flight());
         this.getCommand("toggleplace").setExecutor(new TogglePlace());
+        this.getCommand("spawn").setExecutor(new Spawn());
+        this.getCommand("setspawn").setExecutor(new Spawn());
 
         this.getServer().getPluginManager().registerEvents(new EventListener(), this);
 
