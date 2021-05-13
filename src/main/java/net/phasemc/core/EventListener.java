@@ -10,14 +10,14 @@ public class EventListener implements Listener {
     @EventHandler
     public void onBlockBreak(BlockBreakEvent e) {
 
-        if (!Check.canPlace(e.getPlayer())) e.setCancelled(true);
+        e.setCancelled(!Check.canPlace(e.getPlayer()));
 
     }
 
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent e) {
 
-        if (!Check.canPlace(e.getPlayer())) e.setCancelled(true);
+        e.setCancelled(!Check.canPlace(e.getPlayer()));
 
     }
 
